@@ -16,7 +16,7 @@ const ProjectComp: React.FC<Props> = ({ img, title, description, url, href, isLi
   };
   const content = (
     <div className='w-full h-full p-1'>
-      <div className='flex items-center justify-center'>
+      <div className='flex justify-center text-center'>
         <Image src={Array.isArray(img) ? img[0]?.url : img} alt={title} width={1000} height={1000} className='rounded-lg w-full max-h-[280px] object-contain'/>
       </div>
       <div className='flex flex-col justify-center w-full px-4 pb-7'>
