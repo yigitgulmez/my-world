@@ -7,7 +7,7 @@ const linkLists: Record<string, { href: string; icon: ReactNode }[]> = {
   // ],
   'my_world': [
     { href: 'https://my-world-sable.vercel.app', icon: <RxVercelLogo/> },
-    { href: 'https://github.com/yigitgulmez/my_worl', icon: <AiOutlineGithub/> },
+    { href: 'https://github.com/yigitgulmez/my_world/', icon: <AiOutlineGithub/> },
   ],
 };
 
