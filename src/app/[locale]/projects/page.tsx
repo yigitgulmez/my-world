@@ -134,7 +134,7 @@ export default function Projects() {
         {projects?.map((item, index) => (
           <div className='project sm:scale-100 scale-90' key={index}>
             <ProjectComp
-              img={'https://www.svgrepo.com/show/475820/image.svg'}
+              img={item.img || 'https://www.svgrepo.com/show/475820/image.svg'}
               title={item.title}
               description={item.description}
               url={item.url}

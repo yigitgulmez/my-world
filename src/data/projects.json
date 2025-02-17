@@ -1,58 +1,11 @@
 [
   {
-    "title": "project-alpha",
-    "description": "This is a test repository named Alpha.",
-    "readme": "<h1>Project Alpha</h1><p>This project was developed with Next.js.</p>",
-    "changelog": "## [1.0.0] - 2025-02-17\n### Added\n- Initial release",
-    "img": [
-      {
-        "name": "alpha1.webp",
-        "url": ""
-      }
-    ],
-    "url": "https://github.com/user/project-alpha",
-    "live": true
-  },
-  {
-    "title": "project-beta",
-    "description": "The Beta project is for testing purposes.",
-    "readme": "<h1>Project Beta</h1><p>Created as a test project.</p>",
-    "changelog": "## [0.9.0] - 2025-02-10\n### Changes\n- Updated user interface",
-    "img": [
-      {
-        "name": "beta1.webp",
-        "url": ""
-      }
-    ],
-    "url": "https://github.com/user/project-beta",
-    "live": false
-  },
-  {
-    "title": "project-gamma",
-    "description": "The Gamma project is an open-source project.",
-    "readme": "<h1>Project Gamma</h1><p>An open-source project developed with community support.</p>",
-    "changelog": "## [2.1.0] - 2025-01-20\n### New Features\n- Added API integration",
-    "img": [
-      {
-        "name": "gamma1.webp",
-        "url": ""
-      }
-    ],
-    "url": "https://github.com/user/project-gamma",
-    "live": true
-  },
-  {
-    "title": "project-delta",
-    "description": "The Delta project is currently under development.",
-    "readme": "<h1>Project Delta</h1><p>Currently in development, access is restricted.</p>",
-    "changelog": "## [0.1.0] - 2025-03-01\n### Initial Release\n- Completed project setup",
-    "img": [
-      {
-        "name": "delta1.webp",
-        "url": ""
-      }
-    ],
-    "url": "https://github.com/user/project-delta",
+    "title": "my_world",
+    "description": "This is my-world and my first project.",
+    "readme": "<div align=\"center\">\n  <img alt=\"Logo\" src=\"https://assets.vercel.com/image/upload/v1662130559/nextjs/Icon_dark_background.png\" width=\"100\" />\n</div>\n<h1 align=\"center\">\n  my-world - v1\n</h1>\n<p align=\"center\">\n  This project <a href=\"https://example.com\" target=\"_blank\">example.com</a> built with <a href=\"https://www.nextjs.org/\" target=\"_blank\">Next.js</a> and hosted with <a href=\"https://www.vercel.com/\" target=\"_blank\">Vercel</a>\n</p>\n<p align=\"center\">\n  And this is my first web project.\n</p>\n<p align=\"center\">\n  <a href=\"https://app.vercel.com/sites/my-world/deploys\" target=\"_blank\">\n    <img src=\"\" alt=\"Vercel Status\" />\n  </a>\n</p>\n\n![image](https://raw.githubusercontent.com/yigitgulmez/deneme1/refs/heads/main/images/my-world1.webp?token=GHSAT0AAAAAAC7CEF2WYFQX3EJ33KLECM4OZ5S7K4A)\n\n## ❗ Forking this repo\n\n- It is not appropriate for anyone to use code without giving credit to the author. Therefore, when using my code, please make sure to provide proper attribution to me.\n\n\n## ⚙️ Installation & Set Up\n\n1. Install dependencies\n\n   ```sh\n   npm install\n   ```\n\n1. Install and use the correct version of Node using [NVM](https://github.com/nvm-sh/nvm)\n\n   ```sh\n   nvm install\n   ```\n\n1. Start the development server\n\n   ```sh\n   npm run dev\n   ```\n\n## 🚀 Building and Running for Production\n\n1. Generate a full static production build\n\n   ```sh\n   npm run build\n   ```\n\n1. Preview the site as it will appear once deployed\n\n   ```sh\n   npm run start\n   ```\n\n1. Run a memory test to evaluate performance and stability.\n\n   ```sh\n   npm run memory\n   ```\n",
+    "changelog": null,
+    "img": [],
+    "url": "https://github.com/undefined/my_world",
     "live": true
   }
 ]
