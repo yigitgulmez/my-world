@@ -28,7 +28,7 @@
     "text": "↑ Bana ulaşmanın en kolay yolu ;)",
     "button": {
       "default": "Gönder",
-      "sending": "Gönderiliyor...",
+      "sending": "Gönderiliyor",
       "success": "Gönderildi",
       "error": "Hata"
     },

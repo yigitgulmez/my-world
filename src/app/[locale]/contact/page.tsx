@@ -2,41 +2,43 @@
 import { useTranslations } from 'next-intl';
 import { AiOutlineDiscord } from 'react-icons/ai';
 import Social from '@/components/Social';
+import emailjs from 'emailjs-com';
 import { gsapBottomElement, gsapLeftElement, gsapText } from '@/components/Animation';
 import { useEffect, useRef } from 'react';
+const EMAILJS_KEY1 = process.env.NEXT_PUBLIC_EMAILJS_KEY1;
+const EMAILJS_KEY2 = process.env.NEXT_PUBLIC_EMAILJS_KEY2;
+const EMAILJS_KEY3 = process.env.NEXT_PUBLIC_EMAILJS_KEY3;
 
 export default function Contact() {
   const t = useTranslations('contact');
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     const submitButton = document.getElementById("submit") as HTMLButtonElement;
-    submitButton.disabled = true;
-    submitButton.textContent = t('button.sending');
-
-    const formData = new FormData(event.currentTarget);
-
-    try {
-        const response = await fetch('/api/sendemail', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                from_name: formData.get('from_name'),
-                from_email: formData.get('from_email'),
-                message: formData.get('message')
-            })
-        });
-
-        if (response.ok) {
-            submitButton.textContent = t('button.success');
-        } else {
-            throw new Error('Failed to send email');
-        }
-    } catch (error) {
-        submitButton.textContent = t('button.error');
-        submitButton.disabled = false;
+    let intervalId: NodeJS.Timeout;
+    if (submitButton) {
+      submitButton.disabled = true;
+      let dotCount = 0;
+      const interval = setInterval(() => {
+        dotCount = (dotCount + 1) % 4;
+        submitButton.textContent = t('button.sending') + '.'.repeat(dotCount);
+      }, 500);
+      intervalId = interval;
     }
+    event.preventDefault();
+    emailjs.sendForm(EMAILJS_KEY1 as string, EMAILJS_KEY2 as string, event.currentTarget, EMAILJS_KEY3 as string)
+    .then((result) => {
+      if (submitButton) {
+        clearInterval(intervalId);
+        submitButton.textContent = t('button.success');
+      }
+    })
+    .catch((error) => {
+      if (submitButton) {
+        clearInterval(intervalId);
+        submitButton.textContent = t('button.error')
+        submitButton.disabled = false;
+      }
+    });
   };
-  
   const title = useRef<HTMLHeadingElement>(null);
   const text = useRef<HTMLHeadingElement>(null);
 

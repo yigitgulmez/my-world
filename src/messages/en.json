@@ -28,7 +28,7 @@
     "text": "↑ The easiest way to reach me is ;)",
     "button": {
       "default": "Send",
-      "sending": "Sending...",
+      "sending": "Sending",
       "success": "Sended",
       "error": "Failed"
     },
