@@ -16,7 +16,7 @@
   </a>
 </p>
 
-![image](https://raw.githubusercontent.com/yigitgulmez/deneme1/refs/heads/main/images/my-world1.webp?token=GHSAT0AAAAAAC7CEF2WYFQX3EJ33KLECM4OZ5S7K4A)
+![image](https://github.com/yigitgulmez/my_world/blob/master/public/images/myworld1.png?raw=true)
 
 ## ❗ Forking this repo
 
