@@ -105,7 +105,6 @@ export default function ProjectDetailPage() {
             <p className='text-sm sm:text-base' ref={refs[1]}></p>
           </div>
           <div className='flex flex-row-reverse justify-end gap-7 text-4xl'>
-          <Social key={-1} href={`https://github.com/${GITHUB_OWNER}/${id}`} icon={<AiOutlineGithub/>} />
             {link.map((item: {href: string, icon: ReactNode}, index: number) => (
               <Social key={index} href={item.href} icon={item.icon} />
             ))}
