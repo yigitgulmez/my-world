@@ -2,12 +2,8 @@
 import { useTranslations } from 'next-intl';
 import { AiOutlineDiscord } from 'react-icons/ai';
 import Social from '@/components/Social';
-import emailjs from 'emailjs-com';
 import { gsapBottomElement, gsapLeftElement, gsapText } from '@/components/Animation';
 import { useEffect, useRef } from 'react';
-const EMAILJS_KEY1 = process.env.NEXT_PUBLIC_EMAILJS_KEY1;
-const EMAILJS_KEY2 = process.env.NEXT_PUBLIC_EMAILJS_KEY2;
-const EMAILJS_KEY3 = process.env.NEXT_PUBLIC_EMAILJS_KEY3;
 
 export default function Contact() {
   const t = useTranslations('contact');
@@ -20,7 +16,7 @@ export default function Contact() {
     const formData = new FormData(event.currentTarget);
 
     try {
-        const response = await fetch('/api/sendEmail', {
+        const response = await fetch('/api/sendemail', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -40,7 +36,7 @@ export default function Contact() {
         submitButton.disabled = false;
     }
   };
-
+  
   const title = useRef<HTMLHeadingElement>(null);
   const text = useRef<HTMLHeadingElement>(null);
 
