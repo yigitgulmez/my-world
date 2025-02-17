@@ -124,7 +124,7 @@ export default function Projects() {
   )
 
   const pageMain = (
-    <main className='flex flex-col items-center w-full h-full'>
+    <main className='flex flex-col items-center'>
       <div className='w-10/12 sm:mb-12 mb-0'>
         <div className='flex justify-end'>
           <div className='text-center refresh'>
