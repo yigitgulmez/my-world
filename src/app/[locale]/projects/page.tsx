@@ -75,7 +75,7 @@ export default function Projects() {
     gsapRightElement('.refresh', 2, 0, 0)
     gsapBottomElement('.project', 1, 0, 0.1);
     gsapRotateCounterClockwise('.rotate', 1.8, -360);
-  }, [isLoading, isError, projects]);
+  }, [isLoading, isError, projects, isButtonDisabled]);
   
   useEffect(() => {
     firstLoad();
@@ -90,15 +90,11 @@ export default function Projects() {
       setRemainingTime((prev) => (prev > 0 ? prev - 1 : 0));
     }, 1000);
 
+    isButtonDisabled ? document.getElementById('refresh')?.classList.add('text-gray-500') : document.getElementById('refresh')?.classList.add('rotate')
+    !isButtonDisabled ? document.getElementById('refresh')?.classList.remove('text-gray-500') : document.getElementById('refresh')?.classList.remove('rotate')
     return () => clearInterval(timer);
   }, [isButtonDisabled]);
 
-  useEffect(() => {
-    
-    isButtonDisabled ? document.getElementById('refresh')?.classList.add('text-gray-500') : document.getElementById('refresh')?.classList.add('rotate')
-    !isButtonDisabled ? document.getElementById('refresh')?.classList.remove('text-gray-500') : document.getElementById('refresh')?.classList.remove('rotate')
-  }, [isButtonDisabled])
-  
 
   const pageLoading = (
     <main className='flex justify-center'>
