@@ -1,0 +1,44 @@
+.nav {
+  transition: 400ms;
+  cursor: pointer;
+  color: #eee;
+}
+.nav .list::after{
+  content: attr(data-content);
+  position: absolute;
+  left: 0;
+  color: transparent;
+  background: linear-gradient(#fff, #fff);
+  background-size: 0 2px;
+  background-position: bottom;
+  background-repeat: repeat-y;
+  background-clip: text;
+  -webkit-background-clip: text;
+  transition: 600ms;
+}
+.nav .list::before {
+  content: attr(data-content);
+  position: absolute;
+  padding-bottom: 4px;
+  background: linear-gradient(#6c40a7, #6c40a7);
+  background-size: 0 2px;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  transition:  400ms;
+  color: transparent;
+}
+.nav:hover .list::after,
+.nav:hover .list::before,
+.nav:hover
+{
+  background-size: 100% 2px;
+  color: transparent;
+}
+.nav:hover .list::after,
+.nav .list.active::after,
+.nav:hover .list::before,
+.nav .list.active::before
+{
+  text-shadow:
+    0 0 10px #fff;
+}

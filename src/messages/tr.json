@@ -1,0 +1,54 @@
+{
+  "home": {
+    "welcome": "Sadece kendini geliştirmeye çalışan biri."
+  },
+  "about": {
+    "title": "Hakkımda",
+    "text": "Hey, bu ben! Birçok alanda gelişmeye çalışan ve zor hedefler peşinde koşan, ayrıca gününün çoğunu müzik dinleyerek ve boş vakitlerini oyun oynayarak dolduran biri.",
+    "content1" : {
+      "title": "Sosyal"
+    },
+    "content2" : {
+      "title": "Bildiklerim",
+      "text1": "Web -> Html - Css - JavaScript - Next.js",
+      "text2": "Mobil -> ReactNative - Android Studio",
+      "text3": "Veri Tabanı -> MySQL - MsSQL - SQLLite",
+      "text4": "Diğer -> Python - C# - C++"
+    },
+    "content3" : {
+      "title": "Diğer Beceriler",
+      "text1": "-> Kameraman",
+      "text2": "-> Fotoğrafçı",
+      "text3": "-> Video editörü",
+      "text4": "-> Tasarımcı"
+    }
+  },
+  "contact": {
+    "title": "İletişim",
+    "text": "↑ Bana ulaşmanın en kolay yolu ;)",
+    "button": {
+      "default": "Gönder",
+      "sending": "Gönderiliyor...",
+      "success": "Gönderildi",
+      "error": "Hata"
+    },
+    "inputPlaceholder": "İsim",
+    "textareaPlaceholder": "Mesaj..."
+  },
+  "gallery": {
+    "title": "Galeri"
+  },
+  "projects": {
+    "title": "Projelerim",
+    "live": "Yakında gelecek...",
+    "loading": "Yükleniyor...",
+    "noProject": "Burada görülmeye değer bir şey yok.",
+    "error": "Proje verilerini çekerken bir sorun oluştu, şimdilik github profilime bakabilirisin."
+  },
+  "repoFiles" : {
+    "description" : "Bilgi mevcut değil.",
+    "readme" : "README.md dosyası mevcut değil.",
+    "changelog" : "CHANGELOG.md dosyası mevcut değil.",
+    "images" : "Resimler mevcut değil."
+  }
+}

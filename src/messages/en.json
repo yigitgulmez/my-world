@@ -1,0 +1,54 @@
+{
+  "home": {
+    "welcome": "Just a someone trying to improve himself."
+  },
+  "about": {
+    "title": "About",
+    "text": "Hey, this is me! Someone who tries to improve in many areas and chases difficult goals, also spends most of their day listening to music and fills their free time by playing games.",
+    "content1": {
+      "title": "Social"
+    },
+    "content2": {
+      "title": "Skills",
+      "text1": "Web -> Html - Css - JavaScript - Next.js",
+      "text2": "Mobile -> ReactNative - Android Studio",
+      "text3": "Data Base -> MySQL - MsSQL - SQLLite",
+      "text4": "Other -> Python - C# - C++"
+    },
+    "content3": {
+      "title": "Other Skills",
+      "text1": "-> Cameraman",
+      "text2": "-> Photographer",
+      "text3": "-> Video Editor",
+      "text4": "-> Designer"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "text": "↑ The easiest way to reach me is ;)",
+    "button": {
+      "default": "Send",
+      "sending": "Sending...",
+      "success": "Sended",
+      "error": "Failed"
+    },
+    "inputPlaceholder": "Name",
+    "textareaPlaceholder": "Message..."
+  },
+  "gallery": {
+    "title": "Gallery"
+  },
+  "projects": {
+    "title": "Projects",
+    "live": "Coming soon...",
+    "loading": "Loading...",
+    "noProject": "There's nothing to see here.",
+    "error": "There was a problem pulling the project data, you can check my github profile for now."
+  },
+  "repoFiles" : {
+    "description" : "Description is not avaible.",
+    "readme" : "README.md file is not avaible.",
+    "changelog" : "CHANGELOG.md file is not avaible.",
+    "images" : "Images is not avaible."
+  }
+}

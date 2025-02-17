@@ -1,0 +1,19 @@
+.swiper-button-next,
+.swiper-button-prev {
+  transition: all 0.3s ease;
+  @apply text-violet-600 opacity-0 h-full w-1/6 top-0 m-0 xl:scale-100 lg:scale-75 md:scale-50 scale-[40%]
+}
+.swiper-button-next{
+  @apply translate-x-6
+}
+.swiper-button-prev{
+  @apply -translate-x-6
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  @apply bg-black/40 p-5 rounded-xl border-2 border-purple-600/40
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  @apply opacity-100 
+}

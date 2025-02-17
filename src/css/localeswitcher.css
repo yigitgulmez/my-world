@@ -1,0 +1,28 @@
+.locale {
+  position: relative;
+  transition: 400ms;
+  color: #ccc;
+}
+.locale .lang::after {
+  content: attr(data-content);
+  position: absolute;
+  left: 0;
+  color: transparent;
+  background: linear-gradient(#fff, #fff);
+  background-size: 0 2px;
+  background-position: bottom;
+  background-repeat: repeat-y;
+  background-clip: text;
+  -webkit-background-clip: text;
+  transition: 600ms;
+}
+.locale:hover .lang::after,
+.locale:focus .lang::after,
+.locale:hover,
+.locale:focus
+{
+  text-shadow:
+  0 0 10px #fff;
+  background-size: 100% 2px;
+  color: transparent;
+}

@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*::selection {
+        background-color: #893bb3;
+}
+* {
+        scrollbar-width: thin;
+        scrollbar-color: #7100ae #00000000;
+}
+@font-face {
+        font-family: 'FiraCode';
+        src: url('/fonts/FiraCode.woff2') format('woff2'),
+                url('/fonts/FiraCode.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+}
+@font-face {
+        font-family: 'JetBrains';
+        src: url('/fonts/JetBrainsMono.woff2') format('woff2'),
+                url('/fonts/JetBrainsMono.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+}
+@font-face {
+        font-family: 'CutiveMono';
+        src: url('/fonts/CutiveMono.woff2') format('woff2'),
+                url('/fonts/CutiveMono.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+}

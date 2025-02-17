@@ -1,0 +1,36 @@
+a {
+  position: relative;
+  transition: 400ms;
+  color: #eee;
+}
+a div::after {
+  content: attr(data-content);
+  position: absolute;
+  left: 0;
+  color: transparent;
+  background: linear-gradient(#fff, #fff);
+  background-size: 0 2px;
+  background-position: bottom;
+  background-repeat: repeat-y;
+  background-clip: text;
+  -webkit-background-clip: text;
+  transition: 600ms;
+}
+a div::before {
+  content: attr(data-content);
+  position: absolute;
+  padding-bottom: 4px;
+  background: linear-gradient(#6c40a7, #6c40a7);
+  background-size: 0 2px;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  transition: 400ms;
+  color: transparent;
+}
+a:hover div::after,
+a:hover div::before,
+a:hover
+{
+  background-size: 100% 2px;
+  color: transparent;
+}
