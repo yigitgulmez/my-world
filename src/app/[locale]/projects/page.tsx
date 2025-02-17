@@ -93,6 +93,13 @@ export default function Projects() {
     return () => clearInterval(timer);
   }, [isButtonDisabled]);
 
+  useEffect(() => {
+    
+    isButtonDisabled ? document.getElementById('refresh')?.classList.add('text-gray-500') : document.getElementById('refresh')?.classList.add('rotate')
+    !isButtonDisabled ? document.getElementById('refresh')?.classList.remove('text-gray-500') : document.getElementById('refresh')?.classList.remove('rotate')
+  }, [isButtonDisabled])
+  
+
   const pageLoading = (
     <main className='flex justify-center'>
       <div className='flex justify-center items-center text-4xl w-[80vw] h-[70vh] bg-black/20 rounded-2xl'><RiRefreshLine className='animate-spin'/></div>
@@ -125,7 +132,7 @@ export default function Projects() {
       <div className='w-10/12 sm:mb-12 mb-0'>
         <div className='flex justify-end'>
           <div className='text-center refresh'>
-            <button disabled={isButtonDisabled} onClick={refreshClick} className={`sm:text-4xl text-3xl  ${isButtonDisabled ? 'text-gray-500' : 'rotate'}`}><SlRefresh/></button>
+            <button id='refresh' disabled={isButtonDisabled} onClick={refreshClick} className={`sm:text-4xl text-3xl  ${isButtonDisabled ? 'text-gray-500' : 'rotate'}`}><SlRefresh/></button>
             <p>{isButtonDisabled ? remainingTime : ''}</p>
           </div>
         </div>
