@@ -53,7 +53,6 @@ export default function About() {
             <div className='content skills'>{t('content2.text2')}</div>
             <div className='content skills'>{t('content2.text3')}</div>
             <div className='content skills'>{t('content2.text4')}</div>
-            <div className='content skills'>{t('content2.text5')}</div>
           </div>
           <div className='subject'>
             <div className='title' ref={refs[4]}></div>
