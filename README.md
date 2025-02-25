@@ -10,13 +10,10 @@
 <p align="center">
   And this is my first web project.
 </p>
-<p align="center">
-  <a href="https://app.vercel.com/sites/my-world/deploys" target="_blank">
-    <img src="" alt="Vercel Status" />
-  </a>
-</p>
 
-![image](https://github.com/yigitgulmez/my_world/blob/master/public/images/myworld1.png?raw=true)
+#
+![image](https://github.com/yigitgulmez/my_world/blob/master/images/myworld1.png?raw=true)
+
 
 ## ❗ Forking this repo
 
