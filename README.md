@@ -19,6 +19,26 @@
 
 - It is not appropriate for anyone to use code without giving credit to the author. Therefore, when using my code, please make sure to provide proper attribution to me.
 
+## ❗Note
+
+- You need to set the .env file before running the site.
+
+   ```sh
+   # /.env
+   GITHUB_TOKEN= (To be used to access repos)
+   GITHUB_OWNER=
+   NEXT_PUBLIC_USERNAME=
+   NEXT_PUBLIC_FULLNAME=
+   DOMAIN=
+   EMAILJS_SERVICE_ID=
+   EMAILJS_TEMPLATE_ID=
+   EMAILJS_USER_ID=
+   NEXT_PUBLIC_DISCORDID=
+   NEXT_PUBLIC_STEAMID=
+   NEXT_PUBLIC_SPOTIFYID=
+   NEXT_PUBLIC_GITHUBID=
+   ```
+
 
 ## ❗Note
 
