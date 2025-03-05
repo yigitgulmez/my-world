@@ -3,6 +3,8 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import Background from '@/components/Background';
 import NavBar from '@/components/NavBar';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 const FULLNAME = process.env.NEXT_PUBLIC_FULLNAME
 const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN
 
@@ -54,6 +56,8 @@ export default async function RootLayout({
             <Background/>
             <NavBar/>
             {children}
+            <Analytics/>
+            <SpeedInsights/>
           </div>
         </body>
       </html>
