@@ -23,7 +23,7 @@ export const useDataUtils = () => {
     } catch (error) {}
   }
 };
-  
+
   const readFile = async () => {
     try {
       const response = await fetch('/api/readdata');

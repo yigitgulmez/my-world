@@ -1,10 +1,8 @@
-import { useState } from 'react';
-import { Project, ProjectData } from '@/utils/interface';
+import { Project } from '@/utils/interface';
 import { useDataUtils } from './datautils';
 
 export const useFetchProjects = () => {
   const { saveFile } = useDataUtils();
-  const [newData, setNewData] = useState<ProjectData[]>([]);
 
   const fetchProjects = async () => {
     try {
@@ -24,9 +22,7 @@ export const useFetchProjects = () => {
         url: `https://github.com/${process.env.GITHUB_OWNER}/${project.name}`,
         live: project.isLive,
       }));
-
       await saveFile(projects, null);
-      setNewData(projects);
 
     } catch (err) {
       if (err instanceof Error) {
