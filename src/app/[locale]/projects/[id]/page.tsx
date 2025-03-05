@@ -1,8 +1,6 @@
 'use client'
 import { ReactNode, useEffect, useRef, useState } from 'react';
 import { RiRefreshLine } from 'react-icons/ri';
-import { AiOutlineGithub } from 'react-icons/ai';
-import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -10,6 +8,7 @@ import { Navigation } from 'swiper/modules';
 import { gsapBottomElement, gsapFadeElement, gsapMultiText, gsapRightElement } from '@/components/Animation';
 import { useDataUtils } from '@/utils/datautils';
 import { ProjectData } from '@/utils/interface';
+import Image from 'next/image';
 import Reactmarkdown from 'react-markdown'; 
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
@@ -88,7 +87,7 @@ export default function ProjectDetailPage() {
               <p>↓</p>
             </div>
             <a href={`https://github.com/${GITHUB_OWNER}`} target='_blank' rel='noopener noreferrer'>
-              <img src='https://gh-readme-profile.vercel.app/api?username=yigitgulmez&theme=highcontrast' alt='github card'/>
+              <img src={`https://gh-readme-profile.vercel.app/api?username=${GITHUB_OWNER}&theme=highcontrast`} alt='github card'/>
             </a>
           </div>
         </div>
