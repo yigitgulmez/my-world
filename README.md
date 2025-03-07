@@ -40,27 +40,6 @@
    ```
 
 
-## ❗Note
-
-- You need to set the .env file before running the site.
-
-   ```sh
-   # /.env
-   GITHUB_TOKEN= (To be used to access repos)
-   GITHUB_OWNER=
-   NEXT_PUBLIC_USERNAME=
-   NEXT_PUBLIC_FULLNAME=
-   DOMAIN=
-   EMAILJS_SERVICE_ID=
-   EMAILJS_TEMPLATE_ID=
-   EMAILJS_USER_ID=
-   NEXT_PUBLIC_DISCORDID=
-   NEXT_PUBLIC_STEAMID=
-   NEXT_PUBLIC_SPOTIFYID=
-   NEXT_PUBLIC_GITHUBID=
-   ```
-
-
 ## ⚙️ Installation & Set Up
 
 1. Install dependencies
