@@ -1,6 +1,6 @@
 'use client'
 import '@/css/about.css';
-import { AiOutlineGithub, AiOutlineDiscord, AiOutlineInstagram } from 'react-icons/ai';
+import { AiOutlineGithub, AiOutlineDiscord, AiOutlineInstagram, AiOutlineLinkedin } from 'react-icons/ai';
 import { useTranslations } from 'next-intl';
 import Social from '@/components/Social';
 import { gsapMultiText, gsapLeftElement } from '@/components/Animation';
@@ -40,7 +40,8 @@ export default function About() {
           <div className='subject'>
             <div className='title' ref={refs[2]}></div>
             <div className='content icon flex flex-row-reverse justify-end gap-7 text-4xl'>
-              <Social href={`https://steamcommunity.com/id/${process.env.NEXT_PUBLIC_INSTAGRAMID}`} icon={<AiOutlineInstagram/>}/>
+              <Social href={`https://linkedin.com/in/${process.env.NEXT_PUBLIC_LINKEDINID}`} icon={<AiOutlineLinkedin/>}/>
+              <Social href={`https://instagram.com/${process.env.NEXT_PUBLIC_INSTAGRAMID}`} icon={<AiOutlineInstagram/>}/>
               <Social href={`https://discordapp.com/users/${process.env.NEXT_PUBLIC_DISCORDID}`} icon={<AiOutlineDiscord/>}/>
               <Social href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUBID}`} icon={<AiOutlineGithub/>}/>
             </div>
