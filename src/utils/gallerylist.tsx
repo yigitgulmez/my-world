@@ -1,13 +1,16 @@
 const list = [
-  { img: '/images/gallery/Realme C25S (1).webp', alt: 'Realme C25S (1)', },
-  { img: '/images/gallery/Realme C25S (2).webp', alt: 'Realme C25S (2)', },
-  { img: '/images/gallery/Realme C25S (3).webp', alt: 'Realme C25S (3)', },
-  { img: '/images/gallery/Realme C25S (4).webp', alt: 'Realme C25S (4)', },
-  { img: '/images/gallery/Realme C25S (5).webp', alt: 'Realme C25S (5)', },
-  { img: '/images/gallery/Realme C25S (6).webp', alt: 'Realme C25S (6)', },
-  { img: '/images/gallery/Realme C25S (7).webp', alt: 'Realme C25S (7)', },
-  { img: '/images/gallery/Realme C25S (8).webp', alt: 'Realme C25S (8)', },
-  // { img: '/images/gallery/Example.webp', alt: 'Image', },
+  { img: '/images/gallery/1 (12).jpg', alt: 'Photo', },
+  { img: '/images/gallery/1 (2).jpg', alt: 'Photo', },
+  { img: '/images/gallery/1 (3).jpg', alt: 'Photo', },
+  { img: '/images/gallery/1 (4).jpg', alt: 'Photo', },
+  { img: '/images/gallery/1 (5).jpg', alt: 'Photo', },
+  { img: '/images/gallery/1 (6).jpg', alt: 'Photo', },
+  { img: '/images/gallery/1 (7).jpg', alt: 'Photo', },
+  { img: '/images/gallery/1 (8).jpg', alt: 'Photo', },
+  { img: '/images/gallery/1 (1).jpg', alt: 'Photo', },
+  { img: '/images/gallery/1 (9).jpg', alt: 'Photo', },
+  { img: '/images/gallery/1 (10).jpg', alt: 'Photo', },
+  { img: '/images/gallery/1 (11).jpg', alt: 'Photo', },
 ];
 
 export default list;
