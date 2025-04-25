@@ -5,7 +5,7 @@
   my-world - v1
 </h1>
 <p align="center">
-  This project <a href="https://yeniasd.com" target="_blank">yeniasd.com</a> built with <a href="https://www.nextjs.org/" target="_blank">Next.js</a> and hosted with <a href="https://www.vercel.com/" target="_blank">Vercel</a>
+  This project <a href="https://yigitgulmez.com" target="_blank">yigitgulmez.com</a> built with <a href="https://www.nextjs.org/" target="_blank">Next.js</a> and hosted with <a href="https://www.vercel.com/" target="_blank">Vercel</a>
 </p>
 <p align="center">
   And this is my first web project.
