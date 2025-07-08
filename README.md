@@ -19,7 +19,7 @@
 
 - It is not appropriate for anyone to use code without giving credit to the author. Therefore, when using my code, please make sure to provide proper attribution to me.
 
-## ❗Note
+## ❗ Note
 
 - You need to set the .env file before running the site.
 
