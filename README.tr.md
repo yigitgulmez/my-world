@@ -1,7 +1,5 @@
 <div align="center">
   <img src="https://assets.vercel.com/image/upload/v1662130559/nextjs/Icon_dark_background.png" width="100" />
-  <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-  <img src="./public/favicon.png" width="100" />
 </div>
 
 <p align="center">
