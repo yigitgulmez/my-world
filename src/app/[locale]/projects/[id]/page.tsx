@@ -168,22 +168,31 @@ export default function Project() {
     })
   ) : null;
   
-  const readme = (locale === 'tr' ? (project?.readmeTR?.trim() ? project?.readmeTR?.trim() : project?.readme?.trim()) : project?.readme?.trim()) ? (
-    <div ref={(el) => { contentRefs.current[contentList.length * 2] = el }} >
-      <Reactmarkdown {...scroll}
-        remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeRaw, rehypeHighlight]}>
-        {project?.readme}
-      </Reactmarkdown>
-    </div>
-  ) : null
+  const readmeContent = locale === 'tr'
+  ? (project?.readmeTR?.trim() || project?.readme?.trim())
+  : project?.readme?.trim();
+
+const readme = readmeContent ? (
+  <div ref={(el) => { contentRefs.current[contentList.length] = el }} {...scroll}>
+    <Reactmarkdown
+      remarkPlugins={[remarkGfm]}
+      rehypePlugins={[rehypeRaw, rehypeHighlight]}
+    >
+      {readmeContent}
+    </Reactmarkdown>
+  </div>
+  ) : null;
+
+  const changelogContent = locale === 'tr'
+  ? (project?.changelogTR?.trim() || project?.changelog?.trim())
+  : project?.changelog?.trim();
 
   const changelog = (locale === 'tr' ? (project?.changelogTR?.trim() ? project?.changelogTR?.trim() : project?.changelog?.trim()) : project?.changelog?.trim()) ? (
     <div ref={(el) => { contentRefs.current[contentList.length * 2 + 1] = el }} {...scroll}>
       <Reactmarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeRaw, rehypeHighlight]}>
-        {project?.readme}
+        {changelogContent}
       </Reactmarkdown>
     </div>
   ) : null
