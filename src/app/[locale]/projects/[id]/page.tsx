@@ -172,20 +172,20 @@ export default function Project() {
   ? (project?.readmeTR?.trim() || project?.readme?.trim())
   : project?.readme?.trim();
 
-const readme = readmeContent ? (
-  <div ref={(el) => { contentRefs.current[contentList.length] = el }} {...scroll}>
-    <Reactmarkdown
-      remarkPlugins={[remarkGfm]}
-      rehypePlugins={[rehypeRaw, rehypeHighlight]}
-    >
-      {readmeContent}
-    </Reactmarkdown>
-  </div>
+  const readme = readmeContent ? (
+    <div ref={(el) => { contentRefs.current[contentList.length] = el }} {...scroll}>
+      <Reactmarkdown
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeRaw, rehypeHighlight]}
+      >
+        {readmeContent}
+      </Reactmarkdown>
+    </div>
   ) : null;
 
   const changelogContent = locale === 'tr'
-  ? (project?.changelogTR?.trim() || project?.changelog?.trim())
-  : project?.changelog?.trim();
+    ? (project?.changelogTR?.trim() || project?.changelog?.trim())
+    : project?.changelog?.trim();
 
   const changelog = (locale === 'tr' ? (project?.changelogTR?.trim() ? project?.changelogTR?.trim() : project?.changelog?.trim()) : project?.changelog?.trim()) ? (
     <div ref={(el) => { contentRefs.current[contentList.length * 2 + 1] = el }} {...scroll}>
