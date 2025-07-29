@@ -10,7 +10,7 @@ import { VscVscodeInsiders } from 'react-icons/vsc';
 export const config = {
   username: 'Yiğit',
   fullName: 'Yiğit Gülmez',
-  domain: 'yigitgulmez.com',
+  domain: 'https://yigitgulmez.com',
   githubOwner: 'yigitgulmez',
   repos: [
     { name: 'my-world', isLive: true },
