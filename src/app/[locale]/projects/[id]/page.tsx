@@ -173,7 +173,7 @@ export default function Project() {
   : project?.readme?.trim();
 
   const readme = readmeContent ? (
-    <div ref={(el) => { contentRefs.current[contentList.length] = el }} {...scroll}>
+    <div ref={(el) => { contentRefs.current[contentList.length * 2] = el }} {...scroll}>
       <Reactmarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeRaw, rehypeHighlight]}
