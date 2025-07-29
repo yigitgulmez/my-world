@@ -1,34 +1,35 @@
-.subject {
+@reference "tailwindcss";
+.about-subject {
   @apply mb-14 sm:pr-10 pr-0
 }
-.maintitle {
+.about-maintitle {
   @apply text-5xl mb-8
 }
-.title {
+.about-title {
   @apply text-4xl mb-8
 }
-.content {
+.about-content {
   @apply text-base mb-3
 }
 @media (max-width: 1000px) {
-  .maintitle {
+  .about-maintitle {
     @apply text-4xl
   }
-  .title {
+  .about-title {
     @apply text-3xl
   }
-  .content {
+  .about-content {
     @apply text-sm
   }
 }
 @media (max-width: 800px) {
-  .maintitle {
+  .about-maintitle {
     @apply text-3xl
   }
-  .title {
+  .about-title {
     @apply text-2xl
   }
-  .content {
+  .about-content {
     @apply text-xs
   }
 }

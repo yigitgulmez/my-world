@@ -1,79 +1,223 @@
 'use client'
-import { ReactNode, useEffect, useRef, useState } from 'react';
-import { RiRefreshLine } from 'react-icons/ri';
-import { useTranslations } from 'next-intl';
-import { usePathname } from 'next/navigation'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
-import { gsapBottomElement, gsapFadeElement, gsapMultiText, gsapRightElement } from '@/components/Animation';
-import { useDataUtils } from '@/utils/datautils';
-import { ProjectData } from '@/utils/interface';
-import Image from 'next/image';
-import Reactmarkdown from 'react-markdown'; 
-import rehypeRaw from "rehype-raw";
-import remarkGfm from "remark-gfm";
-import Social from '@/components/Social';
-import linkLists from '@/utils/linklist';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import '@/css/swiper.css';
+import { useEffect, useRef, useState } from 'react';
+import { RiRefreshLine } from 'react-icons/ri';
+import { useLocale, useTranslations } from 'next-intl';
+import { redirect, usePathname } from 'next/navigation'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import { gsapBottomElement, gsapFadeElement, gsapRightElement, gsapText, gsapTopElement, Social } from '@/components';
+import { getProjectByTitleWithSession, linkLists, config } from '@/utils';
+import { ProjectData, TD } from '@/types';
+import { useRouter } from 'next/navigation';
+import rehypeHighlight from 'rehype-highlight';
+import Image from 'next/image';
+import Reactmarkdown from 'react-markdown'; 
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
+import { useGSAP } from '@gsap/react';
 
-const GITHUB_OWNER = process.env.GITHUB_OWNER;
-
-interface TD {
-  text: string | undefined,
-  duration: number,
-}
-
-export default function ProjectDetailPage() {
+export default function Project() {
+  const router = useRouter();
   const pathname = usePathname();
+  const locale = useLocale();
   const id = pathname.split('/').pop() as string;
+  const [project, setProject] = useState<ProjectData | null>(null);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const t = useTranslations('projects');
-  const [project, setProject] = useState<ProjectData>();
-  const link = linkLists[id] || [];
-  const { readFile } = useDataUtils();
+  const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const textRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const imageRef = useRef<HTMLDivElement | null>(null);
+  const errText = useRef<HTMLDivElement | null>(null);
+  const socialRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const scope = useRef(null);
+  
+  if (linkLists[id] && socialRefs.current.length !== linkLists[id].length) {
+    socialRefs.current = Array(linkLists[id].length).fill(null);
+  }
 
-  const content = {
-    className: 'sm:w-full w-11/12 scale-90 sm:scale-100 my-0 lg:mt-20 flex flex-col gap-10 justify-center items-center'
-  }
-  const scroll = {
-    className: 'from-black/60 bg-purple-800/60 bg-gradient-to-tl backdrop-blur-sm shadow-2xl rounded-s-3xl p-10 max-h-[70vh] prose md:prose-lg prose-sm w-full lg:max-w-4xl overflow-y-auto content'
-  }
+  const elements:TD[] = [];
+  
+  if (project?.title) elements.push({ text: project.title, duration: 0.8 });
+  if (project?.description) elements.push({ text: project.description, duration: 1 });
 
   useEffect(() => {
-    const fetchProjectData = async () => {
+    async function fetchProjectData() {
       setIsLoading(true);
       try {
-        const read = await readFile();
-        setProject(read?.data.find(Data => Data.title === id));
-      } catch (error) {
+        const data = await getProjectByTitleWithSession(id);
+        !data && setIsError(true);
+        !data?.live && router.push(`/${locale}/403`);
+        setProject(data);
+      } catch {
         setIsError(true);
       }
       setIsLoading(false);
-    };
+    }
     fetchProjectData();
-  }, []);
+  }, [id]);
+  
+  useGSAP(() => {
+    if (!project) return;
+  
+    gsapText(elements, textRefs.current);
+    gsapRightElement(socialRefs.current, 2, 1, 0.4);
+  
+    if (project?.img?.length) {
+      gsapFadeElement([imageRef.current], 2, 1.2, 0);
+    }
+  
+    if (content || readme || changelog) {
+      gsapBottomElement(contentRefs.current, 2, 1.5, 0.5);
+    }
+  }, { dependencies: [project], scope });
+  
+  useGSAP(() => {
+    if (!isError) return;
+    gsapTopElement([errText.current], 2, 0, 0.7);
+  }, { dependencies: [isError], scope });
 
-  const elements:TD[] = [
-    {text: project?.title, duration: 0.8},
-    {text: project?.description, duration: 1},
-  ];
+  const scroll = {
+    className: `bg-transparent max-h-[70vh] max-w-6xl overflow-y-auto p-5 prose sm:prose-base prose-sm prose-invert scale-90
+    prose-img:rounded-xl prose-p:text-white prose-li:marker:text-white prose-li:text-white prose-headings:mb-4`
+  }
 
-  const refs = elements.map(() => useRef<HTMLDivElement>(null));
+  const title = project?.title ? (
+    <h1 className='text-3xl xs:text-4xl sm:text-5xl mb-6' ref={(el) => { textRefs.current[0] = el }}></h1>
+  ) : null;
 
-  useEffect(() => {
-    gsapMultiText(elements, refs);
-    gsapRightElement('.icon', 2, 1, .5)
-    gsapFadeElement('.image', 2, 1.8)
-    gsapBottomElement('.content', 2, 1.8, .7)
-  }, [isLoading, isError, project]);
+  const description = project?.description ? (
+    <p className='text-sm xs:text-base sm:text-lg' ref={(el) => { textRefs.current[1] = el }}></p>
+  ) : null;
 
+  const linkList = linkLists[id].map((item, i) => {
+    const Icon = item.icon;
+    return (
+      <Social
+        key={i}
+        ref={el => { socialRefs.current[i] = el; }}
+        href={item.href}
+        icon={<Icon />}
+      />
+    );
+  });
 
+  const images = project?.img && project?.img.length ? (
+    <div ref={imageRef} className='-my-32 sm:-my-16 mdx:-my-24 2xl:mb-20 w-full min-[700px] xl:mt-0'>
+      <Swiper
+        modules={[Navigation]}
+        speed={1000}
+        spaceBetween={30}
+        slidesPerView={1}
+        breakpoints={{
+          950: { slidesPerView: 1.8 },
+          0: { slidesPerView: 1 }
+        }}
+        navigation
+        centeredSlides={true}
+        scrollbar={{ draggable: true }}
+        className='w-full select-none'
+      >
+        {project.img.map((item, idx) => (
+          <SwiperSlide key={idx}>
+            <Image
+              src={item.url}
+              width={1000}
+              height={1000}
+              className='h-[700px] object-contain w-full flex items-center justify-center '
+              alt={item.name}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  ) : null
+
+  const contentList = [];
+
+  for (let i = 1; ; i++) {
+    const titleKey = (t.has(`${id}.title${i}`)) ? `${id}.title${i}` : null;
+    const contentKey = (t.has(`${id}.content${i}`)) ? `${id}.content${i}` : null;
+    if (!titleKey || !contentKey) break;
+    const title = t(titleKey);
+    const content = t(contentKey);
+    contentList.push({ title, content });
+  }
+
+  const content = contentList.length ? (
+    contentList.map((item, i) => {
+      return (
+        <div className='md:w-3/4 w-11/12'>
+          <p 
+            ref={(el) => { contentRefs.current[i * 2] = el }}
+            className='text-2xl sm:text-3xl invisible mb-4'
+            >
+            {item.title}
+          </p>
+          <div
+            ref={(el) => { contentRefs.current[i * 2 + 1] = el }}
+            className='invisible text-sm sm:text-base mb-4'
+          >
+            <li>{item.content}</li>
+          </div>
+        </div>
+      );
+    })
+  ) : null;
+  
+  const readme = (locale === 'tr' ? (project?.readmeTR?.trim() ? project?.readmeTR?.trim() : project?.readme?.trim()) : project?.readme?.trim()) ? (
+    <div ref={(el) => { contentRefs.current[contentList.length * 2] = el }} >
+      <Reactmarkdown {...scroll}
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeRaw, rehypeHighlight]}>
+        {project?.readme}
+      </Reactmarkdown>
+    </div>
+  ) : null
+
+  const changelog = (locale === 'tr' ? (project?.changelogTR?.trim() ? project?.changelogTR?.trim() : project?.changelog?.trim()) : project?.changelog?.trim()) ? (
+    <div ref={(el) => { contentRefs.current[contentList.length * 2 + 1] = el }} {...scroll}>
+      <Reactmarkdown
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeRaw, rehypeHighlight]}>
+        {project?.readme}
+      </Reactmarkdown>
+    </div>
+  ) : null
+  
   const pageLoading = (
     <main className='flex justify-center'>
-      <div className='flex justify-center items-center text-4xl w-[80vw] h-[70vh] bg-black/20 rounded-2xl'><RiRefreshLine className='animate-spin'/></div>
+      <div className='flex justify-center items-center text-4xl w-[80vw] h-[70vh] bg-black/20 rounded-2xl'>
+        <RiRefreshLine className='animate-spin'/>
+      </div>
+    </main>
+  )
+  
+  const pageMain = (
+    <main 
+      ref={scope}
+      className='flex flex-col items-center w-full overflow-hidden mb-10 sm:mb-20'
+    >
+      <div className={`mdx:w-2/3 w-11/12 ${images ? 'mb-0' : 'mb-10 sm:mb-20'}`}>
+        <div className='flex justify-between md:mb-10'>
+          <div className='sm:pe-16 pe-12 z-10'>
+            {title}
+            {description}
+          </div>
+          <div className='flex flex-row-reverse justify-end gap-7'>
+            {linkList}
+          </div>
+        </div>
+      </div>
+      {images}
+      <div className='w-11/12 flex flex-col gap-10 justify-center items-center xs:mt-0 -pt-32 z-10'>
+        {content}
+        {readme}
+        {changelog}
+      </div>
     </main>
   )
 
@@ -82,78 +226,26 @@ export default function ProjectDetailPage() {
       <div className='relative w-[80vw] h-[70vh] bg-black/20 rounded-2xl'>
         <div className='flex justify-center items-center text-4xl w-full h-full'>
           <div className='flex justify-center items-center flex-col gap-10'>
-            <div className='sm:text-xl text-xs w-4/5 text-center'>
+            <div ref={errText} className='sm:text-xl text-xs w-4/5 text-center'>
               <p>{t('error')}</p>
               <p>↓</p>
             </div>
-            <a href={`https://github.com/${GITHUB_OWNER}`} target='_blank' rel='noopener noreferrer'>
-              <img src={`https://gh-readme-profile.vercel.app/api?username=${GITHUB_OWNER}&theme=highcontrast`} alt='github card'/>
+            <a href={`https://github.com/${config.githubOwner}`} target='_blank' rel='noopener noreferrer'>
+              <img
+                src={`https://gh-readme-profile.vercel.app/api?username=${config.githubOwner}&theme=highcontrast`}
+                alt='github card'
+              />
             </a>
           </div>
         </div>
       </div>
     </main>
   )
-
-  const pageMain = (
-    <main className='flex flex-col items-center w-full mb-24 overflow-hidden'>
-      <div className='mdx:w-2/3 w-11/12 scale-90 sm:scale-100'>
-        <div className='flex justify-between '>
-          <div className='sm:pe-16 pe-12'>
-            <h1 className='sm:text-4xl text-3xl mb-6' ref={refs[0]}></h1>
-            <p className='text-sm sm:text-base' ref={refs[1]}></p>
-          </div>
-          <div className='flex flex-row-reverse justify-end gap-7 text-4xl'>
-            {link.map((item: {href: string, icon: ReactNode}, index: number) => (
-              <Social key={index} href={item.href} icon={item.icon} />
-            ))}
-          </div>
-        </div>
-      </div>
-      {project?.img ? <div className='lg:mt-20 mt-10 w-full image'>
-        <Swiper
-        modules={[ Navigation ]}
-          spaceBetween={50}
-          slidesPerView={1}
-          breakpoints={{
-            950: {
-              slidesPerView: 1.8,
-            },
-            0: {
-              slidesPerView: 1,
-            }
-          }}
-          navigation
-          centeredSlides={true}
-          scrollbar={{ draggable : true }}
-          className='w-full select-none'
-        >
-          {project?.img.map((item: {url: string, name: string}, index: number) => (
-          <SwiperSlide key={index}><Image src={item.url} width={1000} height={1000} className='h-[500px] object-contain flex items-center justify-center' alt={item.name}/></SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-      :
-      <></>}
-      <div {...content}>
-        {project?.readme ? 
-        <div {...scroll}>
-          <Reactmarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{project?.readme}</Reactmarkdown>
-        </div>
-        : <></>}
-        {project?.changelog ?
-        <div {...scroll}>
-          <Reactmarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{project?.changelog}</Reactmarkdown>
-        </div>
-        : <></>}
-      </div>
-    </main>)
-
   return (
     <>
       {isLoading && pageLoading}
       {isError && !isLoading && pageError }
       {!isLoading && !isError && pageMain}
     </>
-  )
-};
+  );
+}

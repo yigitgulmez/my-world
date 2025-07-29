@@ -1,7 +1,7 @@
 import { useLocale } from 'next-intl';
 import { useTranslations } from 'next-intl';
 
-function navItems() {
+export default function navItems() {
   const t = useTranslations('');
   const locale = useLocale();
   const navItems = [
@@ -12,4 +12,3 @@ function navItems() {
   ];
   return navItems;
 }
-export default navItems;

@@ -1,81 +1,131 @@
-<div align="center">
-  <img alt="Logo" src="https://assets.vercel.com/image/upload/v1662130559/nextjs/Icon_dark_background.png" width="100" />
+<div align="center" style="display: flex; align-items: center; justify-content: center; gap: 30px;">
+  <img src="https://assets.vercel.com/image/upload/v1662130559/nextjs/Icon_dark_background.png" width="100" />
+  <span style="font-size: 50px;">|</span>
+  <img src="./public/favicon.png" width="100" />
 </div>
+
+<p align="center">
+  <a href="./README.tr.md">[𝙏𝙍]</a> - <a href="./README.md">[𝙀𝙉]</a>
+</p>
+
 <h1 align="center">
-  my-world - v1
+  my-world - v2
 </h1>
+
 <p align="center">
-  This project <a href="https://yigitgulmez.com" target="_blank">yigitgulmez.com</a> built with <a href="https://www.nextjs.org/" target="_blank">Next.js</a> and hosted with <a href="https://www.vercel.com/" target="_blank">Vercel</a>
+  This project <a href="https://yigitgulmez.com" target="_blank">yigitgulmez.com</a> was built with <a href="https://www.nextjs.org/" target="_blank">Next.js</a> and is hosted on <a href="https://www.vercel.com/" target="_blank">Vercel</a>.
 </p>
 <p align="center">
-  And this is my first web project.
+  Originally my first web project, now updated as V2.
 </p>
 
-#
-![image](https://github.com/yigitgulmez/my_world/blob/master/images/myworld1.png?raw=true)
+<p align="center">
+  <a href="https://github.com/yigitgulmez/my-world/releases/tag/v1" target="_blank">🔗 V1 Files</a> |
+  <a href="https://my-world-hh1pwsiy3-yigitgulmez-projects.vercel.app" target="_blank">🔍 V1 Preview</a>
+</p>
 
+![image](./images/myworld0.png)
 
-## ❗ Forking this repo
+## ❗ Notes
 
-- It is not appropriate for anyone to use code without giving credit to the author. Therefore, when using my code, please make sure to provide proper attribution to me.
+- You need to set the files before running the site!
 
-## ❗ Note
+```sh
+# /.env.locale
+GITHUB_TOKEN=
+GITHUB_WEBHOOK_SECRET=
+NEXT_PUBLIC_TURNSTILE_SITE_KEY=
+TURNSTILE_SECRET=
+SMTP_HOST=
+SMTP_PORT=
+SMTP_USER=
+SMTP_PASSWORD=
+EMAIL_RECEIVER=
+DB_KEY=
+DB_URL=
+```
 
-- You need to set the .env file before running the site.
+```sh
+# /src/utils/config.ts
+username: 'username',
+fullName: 'name surname',
+domain: 'domain.com',
+githubOwner: 'username',
+repos: [
+  { name: 'my-world', isLive: <boolean> },
+],
+socials: [
+  { href: 'https://example.com/username', icon: CiLink },
+],
+skills: [
+  { icon: FaReact },
+],
+```
 
-   ```sh
-   # /.env
-   GITHUB_TOKEN= (To be used to access repos)
-   GITHUB_OWNER=
-   NEXT_PUBLIC_USERNAME=
-   NEXT_PUBLIC_FULLNAME=
-   DOMAIN=
-   EMAILJS_SERVICE_ID=
-   EMAILJS_TEMPLATE_ID=
-   EMAILJS_USER_ID=
-   NEXT_PUBLIC_DISCORDID=
-   NEXT_PUBLIC_INSTAGRAMID=
-   NEXT_PUBLIC_GITHUBID=
-   NEXT_PUBLIC_LINKEDINID=
-   ```
+## 🧩 Customization
 
+- If you want to change the nav items, edit this:
+
+```sh
+# /src/utils/nav-items.ts
+{ href: `/${locale}/projects`, label: '/' + t('projects.title') },
+{ href: `/${locale}/gallery`, label: '/' + t('gallery.title') },
+{ href: `/${locale}/about`, label: '/' + t('about.title') },
+{ href: `/${locale}/contact`, label: '/' + t('contact.title') },
+```
+
+- If you want to add custom project links, edit this:
+
+```sh
+# /src/utils/link-list.ts
+'my-world': [{ href: "https://example.com", icon: CiUser }],
+```
+
+- If you want to add other project content, edit this:
+
+```sh
+# /src/messages/*.json
+"projects": {
+...
+  "my-world": {
+    "title1": "Projects content 1",
+    "content1": "My project content 1"
+    "title2": "Projects 2",
+    "content2": "My project content2"
+  }
+}
+```
 
 ## ⚙️ Installation & Set Up
 
 1. Install dependencies
 
-   ```sh
-   npm install
-   ```
-
-1. Install and use the correct version of Node using [NVM](https://github.com/nvm-sh/nvm)
-
-   ```sh
-   nvm install
-   ```
+```sh
+npm install
+```
 
 1. Start the development server
 
-   ```sh
-   npm run dev
-   ```
+```sh
+npm run dev
+```
 
 ## 🚀 Building and Running for Production
 
 1. Generate a full static production build
 
-   ```sh
-   npm run build
-   ```
+```sh
+npm run build
+```
 
 1. Preview the site as it will appear once deployed
 
-   ```sh
-   npm run start
-   ```
+```sh
+npm run start
+```
 
 1. Run a memory test to evaluate performance and stability.
 
-   ```sh
-   npm run memory
-   ```
+```sh
+npm run memory
+```

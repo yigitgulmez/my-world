@@ -17,9 +17,7 @@
   transition: 600ms;
 }
 .locale:hover .lang::after,
-.locale:focus .lang::after,
-.locale:hover,
-.locale:focus
+.locale:hover
 {
   text-shadow:
   0 0 10px #fff;

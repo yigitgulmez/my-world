@@ -1,24 +1,18 @@
 import type { Config } from 'tailwindcss';
-
+import typography from '@tailwindcss/typography';
 const config: Config = {
   content: [
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/css/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx,css  }',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx,css}',
+    './src/css/**/*.{js,ts,jsx,tsx,mdx,css}',
   ],
   theme: {
     extend: {
       typography: {
         DEFAULT: {
           css: {
-            color: "#ffffff",
             backgroundColor: "#000000",
             a: { color: "#d900ff" }, 
-            h1: { color: "#ffffff" },
-            h2: { color: "#ffffff" },
-            h3: { color: "#ffffff" },
-            p: { color: "#ffffff" },
-            li: { color: "#ffffff" },
           },
         },
       },
@@ -32,21 +26,14 @@ const config: Config = {
       },
       fontFamily: {
         FiraCode: ['FiraCode', 'sans-serif'],
-        JetBrains: ['JetBrains', 'sans-serif'],
         CutiveMono: ['CutiveMono', 'sans-serif'],
       },
       animation: {
         'pulse2': 'pulse2 1s ease-in-out infinite',
-        'fade-in': 'fadeIn 1s linear',
-        'fade-out': 'fadeOut 1s linear',
-        'slow-fade-in': 'fadeIn 1s linear',
         'fast-fade-in': 'fadeIn .5s linear',
         'fast-fade-out': 'fadeOut .5s linear',
         'transformY-100': 'transformY100 800ms cubic-bezier(1, 0.4, 0.4, 0.5)',
         'transformY--100': 'transformY0100 800ms cubic-bezier(1, 0.4, 0.4, 0.5)',
-        'transformYfull--100': 'transformYfull0100 800ms cubic-bezier(1, 0.4, 0.4, 0.5)',
-        'transformX--100': 'transformX0100 800ms cubic-bezier(1, 0.4, 0.4, 0.5)',
-        'transformX-100': 'transformX100 800ms cubic-bezier(1, 0.4, 0.4, 0.5)',
       },
       keyframes: {
         pulse2: {
@@ -69,25 +56,11 @@ const config: Config = {
         transformY0100: {
           '0%': {transform: 'translateY(-100px)', opacity: '0'},
           '20%': {opacity: '0'},
-          '100%': {transform: 'translateY(0)', opacity: '1'},
-        },
-        transformYfull0100: {
-          '0%': {transform: 'translateY(-100px)'},
-          '100%': {transform: 'translateY(0)'},
-        },
-        transformX0100: {
-          '0%': {transform: 'translateX(-100px)', opacity: '0'},
-          '20%': {opacity: '0'},
-          '100%': {transform: 'translateX(0)', opacity: '1'},
-        },
-        transformX100: {
-          '0%': {transform: 'translateX(+100px)', opacity: '0'},
-          '20%': {opacity: '0'},
-          '100%': {transform: 'translateX(0)', opacity: '1'},
+          '100%': {transform: 'translateY(0)', opacity: '1', visibility: 'visible'},
         },
       },
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [typography],
 };
 export default config;

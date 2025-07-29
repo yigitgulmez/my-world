@@ -1,10 +1,10 @@
 'use client';
-import { Locale, usePathname, } from '@/middleware';
-import Link from 'next/link';
-import { useLocale } from 'next-intl';
 import '@/css/localeswitcher.css';
+import Link from 'next/link';
+import { Locale, usePathname, } from '@/middleware';
+import { useLocale } from 'next-intl';
 
-export default function LocaleSwitcher(){
+export default function LocaleSwitcher() {
   const locale = useLocale();
   const pathname = usePathname();
   const currentLocale = locale as Locale;
@@ -13,7 +13,10 @@ export default function LocaleSwitcher(){
 
   return (
     <Link href={href} className='locale'>
-      <div className='lang font-CutiveMono select-none' data-content={nextLocale}>{locale}</div>
+      <div 
+        className='lang font-Cutive-mono select-none' 
+        data-content={nextLocale}>{locale}
+      </div>
     </Link>
   );
 };

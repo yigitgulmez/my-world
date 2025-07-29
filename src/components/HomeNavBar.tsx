@@ -1,23 +1,36 @@
+'use client'
+
 import '@/css/navbar.css';
 import Link from 'next/link';
-import getNavItems from '@/utils/navitems';
+import { navItems } from '@/utils';
+import { forwardRef, useImperativeHandle, useRef } from 'react';
 
-function HomeNavList() {
-  const navItems = getNavItems();
+function HomeNavBar(props: {}, ref: React.Ref<(HTMLSpanElement | null)[]>) {
+  const navItemsList = navItems();
+  const spanRefs = useRef<(HTMLSpanElement | null)[]>([]);
+
+  useImperativeHandle(ref, () => spanRefs.current);
+
   return (
-    <main className='flex flex-col sm:gap-8 gap-2 sm:flex-row animate-transformY-100 font-CutiveMono select-none'>
-      {navItems.map((item) => (
-        <div className='relative pb-2 sm:w-auto ' key={item.label}>
-          <Link href={item.href} className='nav sm:w-auto'>
-            <span className='list lg:text-xl text-base sm:w-auto' data-content={item.label}>{item.label}</span>
+    <div className='flex flex-col sm:gap-8 gap-2 sm:flex-row font-Cutive-mono select-none'>
+      {navItemsList.map((item, index) => (
+        <div 
+          className='relative pb-2 sm:w-auto invisible' 
+          key={item.label} 
+          ref={el => { spanRefs.current[index] = el; }}
+        >
+          <Link  href={item.href} className='nav sm:w-auto'>
+            <span
+              className='list md:text-xl text-base sm:w-auto'
+              data-content={item.label}
+            >
+              {item.label}
+            </span>
           </Link>
         </div>
       ))}
-    </main>
+    </div>
   );
 }
 
-export default HomeNavList;
-
-
-
+export default forwardRef(HomeNavBar);

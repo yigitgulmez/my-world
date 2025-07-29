@@ -1,33 +1,31 @@
 import '@/css/globals.css';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
-import Background from '@/components/Background';
-import NavBar from '@/components/NavBar';
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Analytics } from '@vercel/analytics/next';
-import { SpeedInsights } from "@vercel/speed-insights/next"
-const FULLNAME = process.env.NEXT_PUBLIC_FULLNAME
-const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN
-
+import { NavBar, Stars } from '@/components';
+import { config } from '@/utils';
+import Footer from '@/components/Footer';
 
 export const metadata = {
-  title: FULLNAME,
-  description: `The world of ${FULLNAME}`,
+  title: config.fullName,
+  description: `The world of ${config.fullName}`,
   icons: {
-    icon: '/favicon.ico',
-    apple: '/favicon.ico',
+    icon: '/favicon.png',
+    apple: '/favicon.png',
   },
   robots: 'all',
   openGraph: {
-    title: FULLNAME,
-    description: `The world of ${FULLNAME}`,
-    url: `https://${DOMAIN}.com/en/about`,
-    siteName: FULLNAME,
+    title: config.fullName,
+    description: `The world of ${config.fullName}`,
+    url: `https://${config.domain}.com/en`,
+    siteName: config.fullName,
     images: [
       {
-        url: `https://${DOMAIN}.com/favicon.ico`,
-        width: 256,
-        height: 256,
-        alt: FULLNAME,
+        url: `https://${config.domain}.com/favicon.png`,
+        width: 1024,
+        height: 1024,
+        alt: config.fullName,
       },
     ],
     locale: 'tr_TR',
@@ -35,9 +33,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary',
-    title: FULLNAME,
-    description: `The world of ${FULLNAME}`,
-    images: [`https://${DOMAIN}.com/favicon.ico`],
+    title: config.fullName,
+    description: `The world of ${config.fullName}`,
+    images: [`https://${config.domain}.com/favicon.png`],
   },
 };
 
@@ -50,15 +48,17 @@ export default async function RootLayout({
   const messages = await getMessages();
   return (
     <NextIntlClientProvider messages={messages}>
-      <html lang='en'>
-        <body>
-          <div className='bg-local bg-gradient-to-br w-screen h-screen from-purple-950 bg-black text-white overflow-x-hidden overflow-y-auto font-FiraCode'>
-            <Background/>
-            <NavBar/>
-            {children}
-            <Analytics/>
-            <SpeedInsights/>
-          </div>
+      <html lang='en' translate="no">
+        <body 
+          className='flex flex-col bg-fixed min-h-screen w-screen overflow-x-hidden overflow-y-auto 
+          font-Fira-code bg-linear-to-br from-purple-950 bg-black text-white'
+        >
+          <Stars />
+          <NavBar />
+          <div className='grow'>{children}</div>
+          <Footer />
+          <Analytics />
+          <SpeedInsights />
         </body>
       </html>
     </NextIntlClientProvider>

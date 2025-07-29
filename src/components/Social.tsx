@@ -1,16 +1,20 @@
-import { ReactNode } from 'react';
+import { SocialProps } from '@/types';
+import { forwardRef } from 'react';
 
-interface Props {
-  href: string;
-  icon: ReactNode;
-}
-
-const Social = ({ href, icon }: Props) => {
+function Social ({ href, icon }: SocialProps, ref: React.Ref<HTMLDivElement> ) {
   return (
-    <div className='flex icon items-center select-none'>
-      <a href={href} target='_blank' rel="noopener noreferrer" className='w-100 h-100 text-4xl animate-pulse2'>{icon}</a>
+    <div 
+      className='flex items-center select-none invisible'  
+      ref={ref} 
+    >
+      <a 
+        href={href} target='_blank' rel='noopener noreferrer' 
+        className='text-4xl animate-pulse2'
+        >
+          {icon}
+      </a>
     </div>
   );
 };
 
-export default Social;
+export default forwardRef(Social);

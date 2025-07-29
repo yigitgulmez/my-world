@@ -24,7 +24,7 @@
   background-size: 0 2px;
   background-position: bottom;
   background-repeat: no-repeat;
-  transition:  400ms;
+  transition: 400ms;
   color: transparent;
 }
 .nav:hover .list::after,

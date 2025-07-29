@@ -1,1 +1,1 @@
-You can add your photos here.
+Add your photos here.

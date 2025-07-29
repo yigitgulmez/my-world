@@ -1,24 +1,18 @@
 {
+  "errors": {
+    "403Message": "Buraya girmek için VIP kart lazım dostum :D"
+  },
   "home": {
     "welcome": "Sadece kendini geliştirmeye çalışan biri."
   },
   "about": {
     "title": "Hakkımda",
     "text": "Hey, bu ben! Birçok alanda gelişmeye çalışan ve zor hedefler peşinde koşan, ayrıca gününün çoğunu müzik dinleyerek ve boş vakitlerini oyun oynayarak dolduran biri.",
-    "content1" : {
+    "content1": {
       "title": "Sosyal"
     },
-    "content2" : {
-      "title": "Bildiklerim",
-      "text1": "Web -> Html - Css - JavaScript - Next.js",
-      "text2": "Mobil -> ReactNative - Android Studio",
-      "text3": "Veri Tabanı -> MySQL - MsSQL - SQLLite",
-      "text4": "Diğer -> Python - C# - C++"
-    },
-    "content3" : {
-      "title": "Diğer Beceriler",
-      "text1": "-> Kameraman",
-      "text2": "-> Tasarımcı"
+    "content2": {
+      "title": "Yetenekler"
     }
   },
   "contact": {
@@ -28,7 +22,8 @@
       "default": "Gönder",
       "sending": "Gönderiliyor",
       "success": "Gönderildi",
-      "error": "Hata"
+      "error": "Hata",
+      "turnstile": "Lütfen insan olduğunuzu doğrulayın."
     },
     "inputPlaceholder": "İsim",
     "textareaPlaceholder": "Mesaj..."
@@ -41,12 +36,10 @@
     "live": "Yakında gelecek...",
     "loading": "Yükleniyor...",
     "noProject": "Burada görülmeye değer bir şey yok.",
-    "error": "Proje verilerini çekerken bir sorun oluştu, şimdilik github profilime bakabilirisin."
-  },
-  "repoFiles" : {
-    "description" : "Bilgi mevcut değil.",
-    "readme" : "README.md dosyası mevcut değil.",
-    "changelog" : "CHANGELOG.md dosyası mevcut değil.",
-    "images" : "Resimler mevcut değil."
+    "error": "Proje verilerini çekerken bir sorun oluştu, şimdilik github profilime bakabilirisin.",
+    "my-world": {
+      "title1": "Bir Adımdan Fazlası...",
+      "content1": "Web developer serüvenime ilk adımını attığım bu projeyi geliştirirken gerçekten çok şey öğrendim. Gerek değişken isimlendirmeleri, gerekse veri kontrolünün zamanı ve yöntemi gibi konularda epey tecrübem oldu.\n\nBaşlarda, en basit şeyler bile saatlerimi alıyordu. Özellikle detaylara olan takıntım yüzünden hem CSS kodlarını defalarca değiştirdim hem de daha en basit kodu bile bilmiyorken en iyisini yazmaya çalıştım. Ancak her engel, bir adım daha ilerlememi sağladı.\n\nBu proje benim için sadece bitmiş bir iş değil; dönüp baktığımda “buradan başladım” diyebileceğim bir referans noktası. Zaten asıl amacım bir imza bırakıp kendimi geliştirmekti ve sanırım bunu başardım."
+    }
   }
 }

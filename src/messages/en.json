@@ -1,4 +1,7 @@
 {
+  "errors": {
+    "403Message": "You need a VIP card to get in here, buddy :D"
+  },
   "home": {
     "welcome": "Just a someone trying to improve himself."
   },
@@ -9,16 +12,7 @@
       "title": "Social"
     },
     "content2": {
-      "title": "Skills",
-      "text1": "Web -> Html - Css - JavaScript - Next.js",
-      "text2": "Mobile -> ReactNative - Android Studio",
-      "text3": "Data Base -> MySQL - MsSQL - SQLLite",
-      "text4": "Other -> Python - C# - C++"
-    },
-    "content3": {
-      "title": "Other Skills",
-      "text1": "-> Cameraman",
-      "text2": "-> Designer"
+      "title": "Skills"
     }
   },
   "contact": {
@@ -28,7 +22,8 @@
       "default": "Send",
       "sending": "Sending",
       "success": "Sended",
-      "error": "Failed"
+      "error": "Failed",
+      "turnstile": "Please verify you are human."
     },
     "inputPlaceholder": "Name",
     "textareaPlaceholder": "Message..."
@@ -41,12 +36,10 @@
     "live": "Coming soon...",
     "loading": "Loading...",
     "noProject": "There's nothing to see here.",
-    "error": "There was a problem pulling the project data, you can check my github profile for now."
-  },
-  "repoFiles" : {
-    "description" : "Description is not avaible.",
-    "readme" : "README.md file is not avaible.",
-    "changelog" : "CHANGELOG.md file is not avaible.",
-    "images" : "Images is not avaible."
+    "error": "There was a problem pulling the project data, you can check my github profile for now.",
+    "my-world": {
+      "title1": "More Than Just a Step...",
+      "content1": "While developing this project — the first step in my journey as a web developer — I truly learned a lot. From naming variables to understanding when and how to validate data, I gained valuable experience.\n\nIn the beginning, even the simplest things would take me hours. Especially because of my obsession with details, I rewrote my CSS codes countless times, and even when I didn’t know how to write the most basic code, I was trying to write the best one. But every obstacle helped me move one step further.\n\nThis project isn’t just a completed task for me; it’s a reference point I can look back on and say, “This is where I started.” After all, my main goal was to leave a mark and grow through the process — and I think I’ve achieved that."
+    }
   }
 }
