@@ -87,9 +87,9 @@ skills: [
 "projects": {
 ...
   "my-world": {
-    "title1": "Projects content 1",
-    "content1": "My project content 1"
-    "title2": "Projects 2",
+    "title1": "Projects1",
+    "content1": "My project content1"
+    "title2": "Projects2",
     "content2": "My project content2"
   }
 }
