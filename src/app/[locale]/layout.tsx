@@ -23,24 +23,25 @@ export const metadata = {
   openGraph: {
     title: config.fullName,
     description: `The world of ${config.fullName}`,
-    url: `https://${config.domain}.com/en`,
+    url: '/en',
     siteName: config.fullName,
     images: [
       {
-        url: `https://${config.domain}.com/android-chrome-512x512.png`,
+        url: '/android-chrome-512x512.png',
         width: 512,
         height: 512,
         alt: config.fullName,
+        type: 'image/png',
       },
     ],
     locale: 'tr_TR',
     type: 'website',
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: config.fullName,
     description: `The world of ${config.fullName}`,
-    images: [`https://${config.domain}.com/android-chrome-512x512.png`],
+    images: ['/android-chrome-512x512.png'],
   },
 };
 
