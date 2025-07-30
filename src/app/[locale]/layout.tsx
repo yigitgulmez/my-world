@@ -10,11 +10,16 @@ import Footer from '@/components/Footer';
 export const metadata = {
   title: config.fullName,
   description: `The world of ${config.fullName}`,
-  icons: {
-    icon: '/favicon.png',
-    apple: '/favicon.png',
-  },
   robots: 'all',
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.ico', type: 'image/x-icon' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
+  manifest: '/site.webmanifest',
   openGraph: {
     title: config.fullName,
     description: `The world of ${config.fullName}`,
@@ -22,9 +27,9 @@ export const metadata = {
     siteName: config.fullName,
     images: [
       {
-        url: `https://${config.domain}.com/favicon.png`,
-        width: 1024,
-        height: 1024,
+        url: `https://${config.domain}.com/android-chrome-512x512.png`,
+        width: 512,
+        height: 512,
         alt: config.fullName,
       },
     ],
@@ -35,7 +40,7 @@ export const metadata = {
     card: 'summary',
     title: config.fullName,
     description: `The world of ${config.fullName}`,
-    images: [`https://${config.domain}.com/favicon.png`],
+    images: [`https://${config.domain}.com/android-chrome-512x512.png`],
   },
 };
 
