@@ -16,6 +16,7 @@ export const config = {
     { name: 'my-world', isLive: true },
     { name: 'cs2-shop-url-creator', isLive: true },
     { name: 'final-drop', isLive: false },
+    { name: 'matching-cards-game', isLive: true },
   ],
   socials: [
     { href: 'https://linkedin.com/in/yigitgulmez', icon: AiOutlineLinkedin },
