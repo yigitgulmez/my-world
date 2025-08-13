@@ -3,7 +3,7 @@
 </div>
 
 <p align="center">
-  <a href="./README.tr.md">[𝙏𝙍]</a> - <a href="./README.md">[𝙀𝙉]</a>
+  <a href="https://github.com/yigitgulmez/my-world/blob/master/README.tr.md">[𝙏𝙍]</a> - <a href="https://github.com/yigitgulmez/my-world/blob/master/README.md">[𝙀𝙉]</a>
 </p>
 
 <h1 align="center">

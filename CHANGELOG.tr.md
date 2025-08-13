@@ -1,4 +1,4 @@
-# 📦 DEĞİŞİKLİKLER - [𝙏𝙍](./CHANGELOG.tr.md) / [𝙀𝙉](./CHANGELOG.md)
+# 📦 CHANGELOG - [𝙏𝙍](https://github.com/yigitgulmez/my-world/blob/master/CHANGELOG.tr.md) / [𝙀𝙉](https://github.com/yigitgulmez/my-world/blob/master/CHANGELOG.md)
 
 ## 📈 V2
 
