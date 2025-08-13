@@ -8,15 +8,18 @@ const supabase = createClient(
 );
 
 export default async function setProjects(projects: ProjectData[]) {
-  for (let i = 1; i < projects.length + 1; i++) {
-    const project = projects[i - 1];
-    const { error } = await supabase
-      .from('projects')
-      .update(project)
-      .eq('id', i);
+  const dataWithId = projects.map((project, index) => ({
+    id: index + 1,
+    ...project
+  }));
 
-    if (error) {
-      throw new Error(`Failed to update project: id ${i} - ${error.message || JSON.stringify(error)}`);
-    }
+  const { error } = await supabase
+    .from('projects')
+    .upsert(dataWithId, { onConflict: 'id' });
+
+  if (error) {
+    throw new Error(
+      `Failed to upsert projects - ${error.message || JSON.stringify(error)}`
+    );
   }
 }
