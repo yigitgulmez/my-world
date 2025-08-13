@@ -2,8 +2,14 @@ import { Project, ProjectData } from '@/types/page';
 import { config } from './config';
 
 export default async function getGithub(): Promise<ProjectData[] | string> {
+  const apiKey = process.env.GET_PROJECTS_API_KEY;
   try {
-    const response = await fetch(`${config.domain}/api/get-projects`);
+    if (!apiKey) throw new Error('API key is missing');
+    const response = await fetch(`${config.domain}/api/get-projects`, {
+      headers: {
+        'x-api-key': apiKey,
+      }
+    });
     if (!response.ok) {
       throw new Error('Failed to fetch projects');
     }

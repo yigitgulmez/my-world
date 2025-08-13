@@ -102,7 +102,12 @@ const fetchChangelogs = async (repo: string) => {
   }
 };
 
-export async function GET() {
+export async function GET(req: Request) {
+  const apiKey = req.headers.get('x-api-key');
+  if (apiKey !== process.env.GET_PROJECTS_API_KEY) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+  
   try {
     const results = [];
 
