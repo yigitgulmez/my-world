@@ -6,7 +6,7 @@ type IconType = React.ComponentType;
 
 const otherLinks: Record<string, { href: string; icon: IconType }[]> = {
   'cs2-shop-url-creator': [{ href: `https://github.com/${config.githubOwner}/cs2-shop-url-creator/`, icon: HiOutlineDownload }],
-  'matching-cards-game': [{ href: `https://${config.githubOwner}github.io/matching-cards-game/`, icon: AiOutlineLink}],
+  'matching-cards-game': [{ href: `https://${config.githubOwner}.github.io/matching-cards-game/`, icon: AiOutlineLink}],
 };
 
 const linkLists: Record<string, { href: string; icon: IconType }[]> = {};
