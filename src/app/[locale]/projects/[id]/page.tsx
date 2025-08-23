@@ -210,9 +210,9 @@ export default function Project() {
       ref={scope}
       className='flex flex-col items-center w-full overflow-hidden mb-10 sm:mb-20'
     >
-      <div className={`mdx:w-2/3 w-11/12 ${images ? 'mb-0' : 'mb-10 sm:mb-20'}`}>
+      <div className={`mdx:w-2/3 w-11/12 z-10 ${images ? 'mb-0' : 'mb-10 sm:mb-20'}`}>
         <div className='flex justify-between md:mb-10'>
-          <div className='sm:pe-16 pe-12 z-10'>
+          <div className='sm:pe-16 pe-12'>
             {title}
             {description}
           </div>
