@@ -10,14 +10,14 @@ const supabase = createClient(
 
 export default async function setProjects(projects: ProjectData[]) {
   const mappedProjects = projects.map(p => ({
-    name: p.title,
+    title: p.title,
     description: p.description,
     readme: p.readme,
-    readmeTR: p.readmeTR,
+    readme_tr: p.readmeTR,
     changelog: p.changelog,
-    changelogTR: p.changelogTR,
-    images: p.img,
-    isLive: p.live
+    changelog_tr: p.changelogTR,
+    img: p.img,
+    live: p.live
   }));
 
   const existingProjects = await getProjects();
@@ -25,9 +25,8 @@ export default async function setProjects(projects: ProjectData[]) {
     throw new Error('Failed to get existing projects');
   }
   const existingNames = existingProjects.map(p => p.title);
-  const newNames = mappedProjects.map(p => p.name);
+  const newNames = mappedProjects.map(p => p.title);
 
-  // 2. Tabloda olup yeni listede olmayanları sil
   const namesToDelete = existingNames.filter(name => !newNames.includes(name));
 
   if (namesToDelete.length > 0) {
