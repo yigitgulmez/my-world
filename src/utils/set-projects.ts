@@ -33,7 +33,7 @@ export default async function setProjects(projects: ProjectData[]) {
     const { error: deleteError } = await supabase
       .from('projects')
       .delete()
-      .in('name', namesToDelete);
+      .in('title', namesToDelete);
 
     if (deleteError) {
       throw new Error(`Failed to delete old projects - ${deleteError.message}`);
@@ -42,7 +42,7 @@ export default async function setProjects(projects: ProjectData[]) {
 
   const { error: upsertError } = await supabase
     .from('projects')
-    .upsert(mappedProjects, { onConflict: 'name' });
+    .upsert(mappedProjects, { onConflict: 'title' });
 
   if (upsertError) {
     throw new Error(`Failed to upsert projects - ${upsertError.message}`);
