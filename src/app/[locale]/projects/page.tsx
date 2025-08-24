@@ -73,7 +73,7 @@ export default function Projects() {
   const pageMain = (
     <main 
       className='flex flex-col sm:grid sm:grid-cols-custom justify-items-center items-center sm:mt-7
-      sm:px-8 sm:py-0 w-full sm:scale-100 xs:scale-[80%] scale-75 sm:my-0 -my-36'
+      sm:px-8 sm:py-0 w-full sm:scale-100 xs:scale-[80%] scale-75 sm:my-0 2xl:mb-20 -my-36'
     >
       {projects?.map((item, index) => (
         <div ref={el => { projectRefs.current[index] = el; }} key={index} className='mb-10 invisible'>
