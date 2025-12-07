@@ -46,6 +46,7 @@ export default function GalleryComp({ img, alt }: GalleryCompProps) {
           ref={imgRef}
           className='z-40 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
           w-auto h-auto max-h-[80%] max-w-[80%] select-none animate-fast-fade-in'
+          priority
         />
       )}
 
@@ -54,6 +55,7 @@ export default function GalleryComp({ img, alt }: GalleryCompProps) {
         alt={alt}
         height={1000}
         width={1000}
+        priority
         onClick={(e) => {
           e.stopPropagation();
           isCentered ? handleClose() : handleClick();

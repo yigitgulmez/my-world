@@ -10,7 +10,7 @@ export default function Footer() {
       `}
     >
       <span className='pb-5 text-gray-400 lg:text-base text-sm'>
-        <a href='https://github.com/yigitgulmez/my-world' target='_blank'>
+        <a href='https://github.com/yigitgulmez' target='_blank'>
           © 2025
           <p
             className='text ps-2 inline-block relative'
