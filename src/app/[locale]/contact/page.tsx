@@ -1,7 +1,6 @@
 'use client'
 import { useRef, useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { AiOutlineDiscord } from 'react-icons/ai'
 import { gsapBottomElement, gsapLeftElement, gsapText, Social } from '@/components'
 import Turnstile from 'react-turnstile'
 import FingerprintJS from '@fingerprintjs/fingerprintjs'
@@ -94,7 +93,6 @@ export default function Contact() {
   const elements: TD[] = 
   [
     { text: t('title'), duration: 0.8 },
-    { text: t('text'), duration: 0.8 },
   ];
   useGSAP(() => {
     gsapText(elements, textRefs.current)
@@ -114,12 +112,6 @@ export default function Contact() {
       >
         <div className='mb-10' >
           <h1 className='sm:text-5xl text-4xl' ref={el => { textRefs.current[0] = el; }}></h1>
-        </div>
-        <div className='flex flex-col gap-2 w-full h-5 mb-24 sm:text-base text-sm'>
-          <div>
-            <Social ref={socialRef} href={`https://discordapp.com/users/528167186511167498`} icon={<AiOutlineDiscord />} />
-          </div>
-          <p className='ps-3.5' ref={el => { textRefs.current[1] = el; }}></p>
         </div>
         <form onSubmit={handleSubmit} className='select-none'>
           <div ref={(el) => { formRefs.current[0] = el }} className='flex flex-col sm:flex-row gap-5 sm:gap-12 mb-5  sm:mb-6 invisible'>

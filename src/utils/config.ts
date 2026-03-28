@@ -21,7 +21,6 @@ export const config = {
   socials: [
     { href: 'https://linkedin.com/in/yigitgulmez', icon: AiOutlineLinkedin },
     { href: 'https://instagram.com/_yigitgulmez', icon: AiOutlineInstagram },
-    { href: 'https://discordapp.com/users/528167186511167498', icon: AiOutlineDiscord },
     { href: 'https://github.com/yigitgulmez', icon: AiOutlineGithub },
   ],
   skills: [
