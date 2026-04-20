@@ -23,6 +23,7 @@ export default function Projects() {
       !data && setIsError(true);
       setProjects(data);
     } catch {
+      console.log('Error fetching projects');
       setIsError(true);
     }
     setIsLoading(false);

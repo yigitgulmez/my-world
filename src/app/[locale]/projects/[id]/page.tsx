@@ -5,7 +5,7 @@ import '@/css/swiper.css';
 import { useEffect, useRef, useState } from 'react';
 import { RiRefreshLine } from 'react-icons/ri';
 import { useLocale, useTranslations } from 'next-intl';
-import { redirect, usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { gsapBottomElement, gsapFadeElement, gsapRightElement, gsapText, gsapTopElement, Social } from '@/components';

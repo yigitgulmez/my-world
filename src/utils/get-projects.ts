@@ -12,6 +12,7 @@ export default async function getProjects(): Promise<ProjectData[] | null> {
     .select('*')
     .order('id', { ascending: true });
   if (error) {
+    console.error(error);
     return null;
   }
   return data ?? null;

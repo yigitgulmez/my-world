@@ -6,8 +6,6 @@ import { gsapText, gsapLeftElement, Social, Skill } from '@/components';
 import { TD } from '@/types';
 import { config } from '@/utils';
 import { useGSAP } from '@gsap/react';
-import { TbFileTypeSql } from 'react-icons/tb';
-import { FaReact } from 'react-icons/fa6';
 
 export default function About() {
   const t = useTranslations('about');
