@@ -1,7 +1,7 @@
 'use client';
 import '@/css/localeswitcher.css';
 import Link from 'next/link';
-import { Locale, usePathname, } from '@/middleware';
+import { Locale, usePathname, } from '@/proxy';
 import { useLocale } from 'next-intl';
 
 export default function LocaleSwitcher() {
